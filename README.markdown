@@ -1,0 +1,3 @@
+# Ryan on Rails:  Building my first app
+
+After having completed [*Michael Hartl's Rails Tutorials*],(http://railstutorials.org) I want to create my own application.  But I don't want to stray too far from what we did - which was build an awesome Twitter clone.  So I'm basically going to rebuild that app, but make some changes - add my own styling and some other features.  I still want his 'help,' but I want to stretch my wings a bit.  So we'll see how this goes.
