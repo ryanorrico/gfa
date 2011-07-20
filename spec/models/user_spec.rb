@@ -131,6 +131,28 @@ describe User do
     end # authenticate method
 
   end # password encryptions
+  
+  
+  describe "admin attribute" do
+    
+    before(:each) do
+      @user = User.create!(@attr)
+    end
+    
+    it "should respond to admin" do
+      @user.should respond_to(:admin)
+    end  #should respond to admin
+    
+    it "should not be an admin by default" do
+      @user.should_not be_admin
+    end  #should not be an admin by default
+    
+    it "should be convertible to an admin" do
+      @user.toggle!(:admin)
+      @user.should be_admin
+    end  #should be convertible to an admin
+  
+  end # admin attribute
 
 end
 
