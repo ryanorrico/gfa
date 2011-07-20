@@ -37,5 +37,37 @@ describe "Users" do
           end.should change(User, :count).by(1)
         end  #should make a new user
     end # success
+  
   end # signup
+  
+  
+  describe "sign in/out" do
+    
+    describe "failure" do
+      
+      it "should not sign a user in" do
+        visit signin_path
+        fill_in :email,       :with => ""
+        fill_in :password,    :with => ""
+        click_button
+        response.should have_selector("div.flash.error", :content => "Invalid")
+      end  #should not sign a user in
+    
+    end # failure
+    
+    describe "success" do
+      
+      it "should sign a user in and out" do
+        user = Factory(:user)
+        integration_sign_in(user)
+        controller.should be_signed_in
+        click_link "Sign out"
+        controller.should_not be_signed_in
+      end  #should sign a user in and out
+      
+    end # success
+  
+  end # sign in/out
+  
+  
 end
