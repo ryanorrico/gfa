@@ -1,3 +1,18 @@
+<% if signed_in? %>
+<table class="front">
+	<tr>
+		<td class="main">
+			<h1 class="micropost">What's up?</h1>
+			<%= render 'shared/micropost_form' %>
+			<%= render 'shared/feed' %>
+		</td>
+		<td class="sidebar round">
+			<%= render 'shared/user_info' %>
+		</td>
+	</tr>
+</table>
+<% else %>
+
 <h1>Get Fucking Awesome</h1>
 
 <p>
@@ -5,3 +20,5 @@ This is the home page for Ryan's fucking awesome application.
 </p>
 
 <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+
+<% end %>

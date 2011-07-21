@@ -177,6 +177,23 @@ describe User do
       end
     end  #should destroy associated microposts
     
+    describe "status feed" do
+      
+      it "should have a feed" do
+        @user.should respond_to(:feed)
+      end  #should have a feed
+      
+      it "should include the user's microposts" do
+        @user.feed.include?(@mp1).should be_true
+        @user.feed.include?(@mp2).should be_true
+      end  #should include the user's microposts
+    end # status feed
+    
+      it "should not include another user's microposts" do
+        mp3 = Factory(:micropost, :user => Factory(:user, :email => Factory.next(:email)))
+        @user.feed.include?(mp3).should be_false
+      end  #should not include another user's microposts
+      
   end # micropost associations
 
 end
